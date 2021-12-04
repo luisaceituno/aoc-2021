@@ -2,6 +2,6 @@
 
 ## Running
 
-Just use node
+Just use deno
 
-`> node 1.js`
+`> deno run --allow-read 1.ts`

@@ -1,7 +1,7 @@
-import { LineReader } from './read-lines.js';
+import { readAllLines } from "./line-reader.ts";
 
-const lines = await LineReader.readAll();
-const commands = lines.map(l => l.split(" ")).map(([dir, units]) => ([dir, parseInt(units)]));
+const lines = await readAllLines("2.input");
+const commands: [string, number][] = lines.map(l => l.split(" ")).map(([dir, units]) => ([dir, parseInt(units)]));
 
 let depth = 0;
 let hor = 0;

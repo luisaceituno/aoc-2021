@@ -1,6 +1,6 @@
-import { LineReader } from "./read-lines.js";
+import { readAllLines } from "./line-reader.ts";
 
-function task1(lines) {
+function task1(lines: string[]) {
   const counts = new Array(lines[0].length).fill(0);
   for (const line of lines) {
     [...line].forEach((bit, i) => {
@@ -16,11 +16,11 @@ function task1(lines) {
   console.log('Task 1:', parseInt(gamma, 2) * parseInt(eps, 2));
 }
 
-function task2(lines) {
+function task2(lines: string[]) {
   console.log('Task 2:', parseInt(oxygen(lines), 2) * parseInt(co2(lines), 2));
 }
 
-function oxygen(lines) {
+function oxygen(lines: string[]) {
   let cur = lines;
   for (let i = 0; i < lines[0].length; i++) {
     cur = split(cur, i).sort((a, b) => b.length - a.length)[0];
@@ -28,10 +28,10 @@ function oxygen(lines) {
       break
     }
   }
-  return cur;
+  return cur[0];
 }
 
-function co2(lines) {
+function co2(lines: string[]) {
   let cur = lines;
   for (let i = 0; i < lines[0].length; i++) {
     cur = split(cur, i).sort((a, b) => b.length - a.length)[1];
@@ -39,10 +39,10 @@ function co2(lines) {
       break
     }
   }
-  return cur;
+  return cur[0];
 }
 
-function split(lines, compareAt) {
+function split(lines: string[], compareAt: number) {
   const ones = [];
   const zeros = [];
   for (const line of lines) {
@@ -55,6 +55,6 @@ function split(lines, compareAt) {
   return [ones, zeros];
 }
 
-const lines = (await LineReader.readAll());
+const lines = (await readAllLines("3.input"));
 task1(lines);
 task2(lines);

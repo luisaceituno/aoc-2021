@@ -1,6 +1,6 @@
-import { LineReader } from "./read-lines.js";
+import { readAllLines } from "./line-reader.ts";
 
-const lines = (await LineReader.readAll()).map(l => parseInt(l));
+const lines = (await readAllLines("1.input")).map(l => parseInt(l));
 
 let count = 0;
 
