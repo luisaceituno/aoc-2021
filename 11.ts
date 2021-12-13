@@ -8,8 +8,8 @@ let allFlashed = false;
 let step = 0;
 while (++step <= 100 || !allFlashed) {
   const last = flashes;
-  for (let x = 0; x < nums.length; x++) {
-    for (let y = 0; y < nums[x].length; y++) {
+  for (let x = 0; x < width; x++) {
+    for (let y = 0; y < height; y++) {
       increase(x, y);
     }
   }
